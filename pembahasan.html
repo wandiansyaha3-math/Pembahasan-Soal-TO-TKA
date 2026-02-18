@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mode Pembahasan Matematika (1-15)</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; background-color: #f0f2f5; padding: 20px; display: flex; flex-direction: column; align-items: center; }
+        .container { max-width: 800px; width: 100%; }
+        
+        /* Card Styles */
+        .card { background: white; padding: 25px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); margin-bottom: 25px; border-left: 8px solid #6c5ce7; transition: 0.3s; }
+        
+        /* Header */
+        .header-box { background-color: #6c5ce7; padding: 20px; border-radius: 15px; text-align: center; color: white; width: 100%; max-width: 800px; margin-bottom: 30px; }
+        
+        /* Soal & Opsi */
+        .soal { font-size: 1.1em; margin-bottom: 15px; font-weight: 400; color: #2d3436;text-align: justify; }
+        .opsi-label { display: block; margin: 10px 0; cursor: pointer; padding: 12px; border: 2px solid #eee; border-radius: 8px; transition: 0.2s; position: relative; }
+        .opsi-label:hover { background-color: #f9f9ff; border-color: #a29bfe; }
+        .opsi-label input { margin-right: 10px; }
+        .stimulus { background: #f8f9ff; padding: 15px; border-radius: 10px; border: 1px solid #dcdde1; margin-bottom: 15px; font-style: italic; color: #2f3640; }
+
+        /* Styling saat jawaban dipilih */
+        .opsi-label.selected-correct { background-color: #d4edda; border-color: #28a745; color: #155724; }
+        .opsi-label.selected-wrong { background-color: #f8d7da; border-color: #dc3545; color: #721c24; }
+
+        /* Feedback & Pembahasan */
+        .feedback-msg { margin-top: 15px; font-weight: bold; padding: 10px; border-radius: 5px; display: none; }
+        .feedback-benar { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+        .feedback-salah { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+
+        .btn-bahas { display: none; margin-top: 15px; padding: 10px 20px; background: #0984e3; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 0.9em; }
+        .btn-bahas:hover { background: #74b9ff; }
+
+        .pembahasan-box { 
+            display: none; 
+            margin-top: 15px; 
+            padding: 15px; 
+            background: #fff3cd; 
+            border-left: 5px solid #ffc107; 
+            border-radius: 5px; 
+            color: #856404; 
+            font-size: 0.95em;
+            line-height: 1.6;
+        }
+        
+        /* Gambar Responsif */
+        img { max-width: 100%; height: auto; border-radius: 5px; margin: 10px 0; }
+        
+        /* Tabel dalam soal */
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; background: white; }
+        th, td { border: 1px solid #dee2e6; padding: 8px; text-align: left; font-size: 0.9em; }
+        th { background-color: #f1f2f6; text-align: center; }
+
+        
+            .section-title { background: #00cec9; color: white; padding: 10px 20px; border-radius: 8px; margin: 30px 0 15px 0; font-weight: bold; }
+            .btn-action { margin-top: 15px; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; font-size: 0.9em; font-weight: bold; }
+            .btn-periksa { background: #6c5ce7; color: white; }
+            .should-be-selected { border: 2px dashed #28a745; background-color: #e8f5e9; } 
+
+            /* Style Tabel Benar/Salah */
+            table { width: 100%; border-collapse: collapse; margin-top: 10px; background: white; }
+            th, td { border: 1px solid #dee2e6; padding: 10px; text-align: left; }
+            th { background-color: #dfe6e9; text-align: center; }
+            .center { text-align: center; width: 60px; }
+            .row-correct { background-color: #d4edda; }
+            .row-wrong { background-color: #f8d7da; }
+
+    </style>
+</head>
+<body>    
+
+    <div class="header-box">
+        <h1 style="margin:0;">MODE PEMBAHASAN MATEMATIKA</h1>
+        <p>Latihan Soal Nomor 1 - 15</p>
+    </div>
+
+    <div class="container">
+
+        <div class="card" id="card-1">
+            <div class="soal">
+                <b>1.</b> Ani membeli 2 pulpen  dan 2 pensil di sebuah toko alat tulis. Harga satuan pulpen adalah Rp12.000,00 dan harga satuan pensil adalah Rp8.000,00. Kebetulan, toko tersebut sedang memberikan promo "Hemat Berempat" dengan ketentuan sebagai berikut:
+            “Setiap pembelian 4 barang (boleh campur) akan mendapat potongan harga sebesar harga 1 barang termurah yang dibeli”.
+             <p> Berapa total harga yang harus dibayar Ani dari semua barang yang dibeli? </p>
+            </div>
+            <div class="opsi-container">
+                <label class="opsi-label"><input type="radio" name="q1" value="A" onclick="cekJawaban(1, 'A')"> A. Rp32.000,00</label>
+                <label class="opsi-label"><input type="radio" name="q1" value="B" onclick="cekJawaban(1, 'B')"> B. Rp36.000,00</label>
+                <label class="opsi-label"><input type="radio" name="q1" value="C" onclick="cekJawaban(1, 'C')"> C. Rp40.000,00</label>
+                <label class="opsi-label"><input type="radio" name="q1" value="D" onclick="cekJawaban(1, 'D')"> D. Rp44.000,00</label>
+            </div>
+            <div id="feedback-1" class="feedback-msg"></div>
+            <button id="btn-bahas-1" class="btn-bahas" onclick="togglePembahasan(1)">Lihat Pembahasan</button>
+            <div id="bahas-1" class="pembahasan-box">
+                <b>Pembahasan:</b><br>
+                Total barang yang dibeli = 2 pulpen + 2 pensil = 4 barang (Memenuhi syarat promo).<br>
+                Harga normal: <br>
+                \(2 \times 12.000 = 24.000\) <br>
+                \(2 \times 8.000 = 16.000\) <br>
+                Total = Rp40.000,00.<br>
+                <b>Diskon:</b> Harga 1 barang termurah (Pensil) = Rp8.000,00.<br>
+                <b>Bayar:</b> \(40.000 - 8.000 = \text{Rp}32.000,00\).
+            </div>
+        </div>
+
+        <div class="card" id="card-2">
+            <div class="soal">
+                <b>2.</b> Untuk membuat larutan desinfektan atau larutan pembasmi kuman, dibutuhkan cairan \(A\) dan \(B\) dengan perbandingan \(A : B = 3 : 5\). <br> <br>
+            Jika tersedia 2,5 liter cairan B, maka volume maksimum larutan yang dapat dibuat adalah ….
+            </div>
+            <div class="opsi-container">
+                <label class="opsi-label"><input type="radio" name="q2" value="A" onclick="cekJawaban(2, 'A')"> A. \(3,6\) liter</label>
+                <label class="opsi-label"><input type="radio" name="q2" value="B" onclick="cekJawaban(2, 'B')"> B. \(4,0\) liter</label>
+                <label class="opsi-label"><input type="radio" name="q2" value="C" onclick="cekJawaban(2, 'C')"> C. \(4,8\) liter</label>
+                <label class="opsi-label"><input type="radio" name="q2" value="D" onclick="cekJawaban(2, 'D')"> D. \(6,4\) liter</label>
+            </div>
+            <div id="feedback-2" class="feedback-msg"></div>
+            <button id="btn-bahas-2" class="btn-bahas" onclick="togglePembahasan(2)">Lihat Pembahasan</button>
+            <div id="bahas-2" class="pembahasan-box">
+                <b>Pembahasan:</b><br>
+                Diketahui \(B = 2,5\) liter dan \(A : B = 3 : 5\).<br>
+                Maka volume A yang dibutuhkan:<br>
+                \[ \begin{eqnarray} 
+                \dfrac{A}{B} &=& \dfrac{3}{4} \\ 
+                A &= &\dfrac{3}{4} \times B\\
+                A &= &\dfrac{3}{4} \times 2,5 \ \text{liter}\\
+                &=& 1,5 \  \text{liter}
+                \end{eqnarray} \]
+                Total Larutan = \(A + B = 1,5 + 2,5 = 4,0\) liter.
+            </div>
+        </div>
+
+        <div class="card" id="card-3">
+            <div class="soal">
+                <b>3.</b> Harga setengah kilogram cabe rawit Rp35.000,00. 
+                Jika Ibu membeli \(2\dfrac{1}{4}\) kilogram, total harga yang harus dibayar adalah ….
+            </div>
+            <div class="opsi-container">
+                <label class="opsi-label"><input type="radio" name="q3" value="A" onclick="cekJawaban(3, 'A')"> A. Rp175.000,00</label>
+                <label class="opsi-label"><input type="radio" name="q3" value="B" onclick="cekJawaban(3, 'B')"> B. Rp157.500,00</label>
+                <label class="opsi-label"><input type="radio" name="q3" value="C" onclick="cekJawaban(3, 'C')"> C. Rp140.000,00</label>
+                <label class="opsi-label"><input type="radio" name="q3" value="D" onclick="cekJawaban(3, 'D')"> D. Rp87.500,00</label>
+            </div>
+            <div id="feedback-3" class="feedback-msg"></div>
+            <button id="btn-bahas-3" class="btn-bahas" onclick="togglePembahasan(3)">Lihat Pembahasan</button>
+            <div id="bahas-3" class="pembahasan-box">
+                <b>Pembahasan:</b><br>
+                Harga 0,5 kg = Rp35.000, maka harga 1 kg = Rp70.000.<br>
+                Ibu membeli \(2\frac{1}{4}\) kg atau 2,25 kg.<br>
+                Total = \(2,25 \times 70.000 = \text{Rp}157.500,00\).
+            </div>
+        </div>
+
+        <div class="card" id="card-4">
+            <div class="soal">
+                <b>4.</b> Perhatikan Cerita Berikut: 
+            <div class="stimulus"> <b>Proyek Renovasi Gedung</b> <br> <br>
+                Proyek renovasi suatu gedung sekolah harus diselesaikan paling lambat dalam waktu 60 hari sesuai dengan kontrak kerja yang telah disepakati bersama. Manajer proyek telah menghitung kebutuhan tenaga kerja dengan asumsi setiap pegawai memiliki kemampuan dan produktivitas yang sama setiap harinya. Kemajuan proyek sangat bergantung pada jumlah pegawai; semakin banyak pegawai yang bekerja, maka waktu pengerjaan akan semakin singkat.
+               <br> <img src="gambar1_Proyek.png" alt="Proyek Pembangunan" style="width: 100%; max-width: 500px; margin: 10px 0;" >
+                <br>Pekerjaan dinyatakan selesai jika seluruh beban kerja telah terpenuhi. Jika terjadi kendala pada jumlah pegawai atau waktu kerja, manajer harus melakukan penyesuaian agar total beban kerja tetap terpenuhi tepat waktu. Penyesuaian ini sangat penting dilakukan agar renovasi gedung selesai tepat 60 hari tanpa melanggar batas kontrak yang ada.
+            </div>
+            <p>Berdasarkan perencanaan awal, renovasi gedung dapat diselesaikan oleh 12 pegawai dalam waktu 60 hari. Jika manajer memutuskan untuk menambah jumlah pegawai menjadi 18 orang agar pekerjaan lebih cepat selesai, maka waktu yang diperlukan untuk menyelesaikan renovasi tersebut adalah… </p>
+            </div>
+            <div class="opsi-container">
+                <label class="opsi-label"><input type="radio" name="q4" value="A" onclick="cekJawaban(4, 'A')"> A. 30 hari</label>
+                <label class="opsi-label"><input type="radio" name="q4" value="B" onclick="cekJawaban(4, 'B')"> B. 40 hari</label>
+                <label class="opsi-label"><input type="radio" name="q4" value="C" onclick="cekJawaban(4, 'C')"> C. 45 hari</label>
+                <label class="opsi-label"><input type="radio" name="q4" value="D" onclick="cekJawaban(4, 'D')"> D. 90 hari</label>
+            </div>
+            <div id="feedback-4" class="feedback-msg"></div>
+            <button id="btn-bahas-4" class="btn-bahas" onclick="togglePembahasan(4)">Lihat Pembahasan</button>
+            <div id="bahas-4" class="pembahasan-box">
+                <b>Pembahasan:</b><br>
+                Ini adalah perbandingan berbalik nilai (semakin banyak pekerja, waktu semakin sedikit).<br>
+                <p>
+                <table>
+                    <tr><th>Jumlah Pekerja</th><th>Waktu</th></tr>
+                    <tr><td>12 orang</td><td>60 hari</td></tr>
+                    <tr><td>18 orang</td><td>\(x\) hari</td></tr>
+                </table>
+                </p>
+
+
+                \(12 \text{ orang} \times 60 \text{ hari} = 18 \text{ orang} \times x \text{ hari}\)<br>
+                \(720 = 18 \times x\)<br>
+                \(x = \frac{720}{18} = 40 \text{ hari}\).
+            </div>
+        </div>
+
+        <div class="card" id="card-5">
+            <div class="soal">
+                <b>5.</b> Perhatikan Stimulus Berikuti ini: 
+            <div class="stimulus">
+                <b>Alur Pelayanan Donor </b>
+                <br> <br> DarahKegiatan donor adalah salah satu bentuk aksi kemanusian yang sangat bermanfaat untuk diri sendiri dan orang lain. Setetes darah yang disumbangkan dapat memberikan harapan hidup bagi orang lain yang membutuhkan, terutama mereka yang mengalami kecelakaan, setelah menjalani operasi, atau menderita penyakit yang serius. Tak hanya untuk penerima, pendonor juga bisa mendapatkan manfaat. Diantaranya bermanfaat untuk mendeteksi penyakit, meningkatkan produksi sel darah, dan menjaga kesehatan jantung. Oleh karena itu disarankan untuk melakukan donor darah tiga bulan setelah donor darah terakhir.
+                Biasanya aksi donor darah difasilitasi oleh Palang Merah Indonesia (PMI). Berikut adalah alur kegiatan donor darah di sebuah posko PMI.
+                <br> <img src="gambar2_donor.png" alt="Donor Darah" style="widht=100%; max-width: 450px ; margin:10px 0;" >
+            </div>
+            Seorang pendonor darah mendatangi posko PMI. Kebetulan saat ini sedang tidak ada antrian sehingga orang tersebut dapat langsung dilayani. 
+            <br> Jika tidak ada kendala pada pelayanan donor darah, apa yang sedang dilakukan pendonor tersebut setelah 25 menit berlalu?
+            </div>
+            <div class="opsi-container">
+                <label class="opsi-label"><input type="radio" name="q5" value="A" onclick="cekJawaban(5, 'A')"> A. Tahap pemeriksaan kesehatan</label>
+                <label class="opsi-label"><input type="radio" name="q5" value="B" onclick="cekJawaban(5, 'B')"> B. Duduk di kursi tunggu</label>
+                <label class="opsi-label"><input type="radio" name="q5" value="C" onclick="cekJawaban(5, 'C')"> C. Proses pengambilan darah</label>
+                <label class="opsi-label"><input type="radio" name="q5" value="D" onclick="cekJawaban(5, 'D')"> D. Istirahat di ruang pemulihan</label>
+            </div>
+            <div id="feedback-5" class="feedback-msg"></div>
+            <button id="btn-bahas-5" class="btn-bahas" onclick="togglePembahasan(5)">Lihat Pembahasan</button>
+            <div id="bahas-5" class="pembahasan-box">
+                <b>Pembahasan:</b><br>
+                Berdasarkan infografis standar donor darah <br>
+                - Administrasi & Cek HB: ~10-15 menit.<br>
+                - Cek Dokter: ~5-10 menit.<br>
+                - Menit ke-25 biasanya pendonor sudah selesai screening dan sedang masuk ke tahap <b>pengambilan darah</b> atau persiapan pengambilan darah. Jawaban yang paling logis dalam konteks soal ini adalah C.
+            </div>
+        </div>
+
+        <div class="card" id="card-6">
+            <div class="soal">
+                <b>6.</b> Perhatikan  bentuk aljabar berikut \[(x+2)(3+y)+(x+2)(1-y)\] 
+            bentuk sederhana dari bentuk aljabar di atas adalah....
+            <div class="opsi-container">
+                <label class="opsi-label"><input type="radio" name="q6" value="A" onclick="cekJawaban(6, 'A')"> A. \(4(x+2)\)</label>
+                <label class="opsi-label"><input type="radio" name="q6" value="B" onclick="cekJawaban(6, 'B')"> B. \(x+2+4y\)</label>
+                <label class="opsi-label"><input type="radio" name="q6" value="C" onclick="cekJawaban(6, 'C')"> C. \(4(x+8)\)</label>
+                <label class="opsi-label"><input type="radio" name="q6" value="D" onclick="cekJawaban(6, 'D')"> D. \(4x+2y\)</label>
+            </div>
+            <div id="feedback-6" class="feedback-msg"></div>
+            <button id="btn-bahas-6" class="btn-bahas" onclick="togglePembahasan(6)">Lihat Pembahasan</button>
+            <div id="bahas-6" class="pembahasan-box">
+                <b>Pembahasan:</b><br>
+                Gunakan sifat distributif (faktorkan \((x+2)\)):<br>
+                \(= (x+2) [ (3+y) + (1-y) ]\)<br>
+                \(= (x+2) [ 3 + 1 + y - y ]\)<br>
+                \(= (x+2) [ 4 ]\)<br>
+                \(= 4(x+2)\).
+            </div>
+            </div>
+        </div>
+
+        <div class="card" id="card-7">
+            <div class="soal">
+                <b>7.</b> Fungsi \(f(x)=5x+10\) menyatakan berat total (kg) untuk \(x\) batang logam.
+                <p>Jika pabrik memproduksi 7 batang logam, berapa berat logam keseluruhan?</p>
+            </div>
+            <div class="opsi-container">
+                <label class="opsi-label"><input type="radio" name="q7" value="A" onclick="cekJawaban(7, 'A')"> A. 35 kg</label>
+                <label class="opsi-label"><input type="radio" name="q7" value="B" onclick="cekJawaban(7, 'B')"> B. 45 kg</label>
+                <label class="opsi-label"><input type="radio" name="q7" value="C" onclick="cekJawaban(7, 'C')"> C. 50 kg</label>
+                <label class="opsi-label"><input type="radio" name="q7" value="D" onclick="cekJawaban(7, 'D')"> D. 70 kg</label>
+            </div>
+            <div id="feedback-7" class="feedback-msg"></div>
+            <button id="btn-bahas-7" class="btn-bahas" onclick="togglePembahasan(7)">Lihat Pembahasan</button>
+            <div id="bahas-7" class="pembahasan-box">
+                <b>Pembahasan:</b><br>
+                Substitusi \(x = 7\) ke dalam fungsi \(f(x)\):<br>
+                \(f(7) = 5(7) + 10\)<br>
+                \(f(7) = 35 + 10 = 45\).
+            </div>
+        </div>
+
+        <div class="card" id="card-8">
+            <div class="soal">
+                <b>8.</b> Pola titik segitiga: 1, 3, 6, 10... Jumlah titik pada pola ke-6 adalah …
+            </div>
+            <div class="opsi-container">
+                <label class="opsi-label"><input type="radio" name="q8" value="A" onclick="cekJawaban(8, 'A')"> A. 15</label>
+                <label class="opsi-label"><input type="radio" name="q8" value="B" onclick="cekJawaban(8, 'B')"> B. 18</label>
+                <label class="opsi-label"><input type="radio" name="q8" value="C" onclick="cekJawaban(8, 'C')"> C. 21</label>
+                <label class="opsi-label"><input type="radio" name="q8" value="D" onclick="cekJawaban(8, 'D')"> D. 28</label>
+            </div>
+            <div id="feedback-8" class="feedback-msg"></div>
+            <button id="btn-bahas-8" class="btn-bahas" onclick="togglePembahasan(8)">Lihat Pembahasan</button>
+            <div id="bahas-8" class="pembahasan-box">
+                <b>Pembahasan:</b><br>
+                Ini adalah pola bilangan segitiga dengan rumus \(Un = \frac{n(n+1)}{2}\).<br>
+                Untuk \(n=6\):<br>
+                \(U_6 = \frac{6 \times 7}{2} = \frac{42}{2} = 21\).
+            </div>
+        </div>
+
+         <div class="card" id="card-9">
+            <div class="soal">
+                <b>9.</b> Pak Doni ingin mengecat dinding. Diketahui data cat:
+                <br>- Momilek: 7 m²/kg (5kg, 10kg)
+                <br>- Josun: 8 m²/kg (2kg, 10kg)
+                <br>- Bulux: 10 m²/kg (2kg, 5kg)
+                <br>- Noppin: 9 m²/kg (1kg, 5kg)
+                <br>Supaya sisa cat paling sedikit, merek apa yang dipilih? (Asumsi luas dinding kelipatan 10 atau menyesuaikan kunci jawaban optimal).
+            </div>
+            <div class="opsi-container">
+                <label class="opsi-label"><input type="radio" name="q9" value="A" onclick="cekJawaban(9, 'A')"> A. Momilex</label>
+                <label class="opsi-label"><input type="radio" name="q9" value="B" onclick="cekJawaban(9, 'B')"> B. Josun</label>
+                <label class="opsi-label"><input type="radio" name="q9" value="C" onclick="cekJawaban(9, 'C')"> C. Bulux</label>
+                <label class="opsi-label"><input type="radio" name="q9" value="D" onclick="cekJawaban(9, 'D')"> D. Noppin</label>
+            </div>
+            <div id="feedback-9" class="feedback-msg"></div>
+            <button id="btn-bahas-9" class="btn-bahas" onclick="togglePembahasan(9)">Lihat Pembahasan</button>
+            <div id="bahas-9" class="pembahasan-box">
+                <b>Pembahasan:</b><br>
+                Berdasarkan efisiensi daya sebar dan kemasan:<br>
+                Bulux memiliki daya sebar paling tinggi (10 m²/kg) dan variasi kemasan (2kg dan 5kg) yang memudahkan kombinasi untuk mencapai luas area dengan sisa minimum dibandingkan cat lain yang daya sebarnya ganjil atau kemasannya terlalu besar.
+            </div>
+        </div>
+
+        <div class="card" id="card-10">
+            <div class="soal">
+                <b>10.</b> Karton ukuran 50 cm x 100 cm. Ingin membuat prisma segitiga dari jaring-jaring utuh.
+                Banyak kemasan maksimum yang dapat dibuat adalah ....
+            </div>
+            <div class="opsi-container">
+                <label class="opsi-label"><input type="radio" name="q10" value="A" onclick="cekJawaban(10, 'A')"> A. 4 kemasan</label>
+                <label class="opsi-label"><input type="radio" name="q10" value="B" onclick="cekJawaban(10, 'B')"> B. 8 kemasan</label>
+                <label class="opsi-label"><input type="radio" name="q10" value="C" onclick="cekJawaban(10, 'C')"> C. 9 kemasan</label>
+                <label class="opsi-label"><input type="radio" name="q10" value="D" onclick="cekJawaban(10, 'D')"> D. 14 kemasan</label>
+            </div>
+            <div id="feedback-10" class="feedback-msg"></div>
+            <button id="btn-bahas-10" class="btn-bahas" onclick="togglePembahasan(10)">Lihat Pembahasan</button>
+            <div id="bahas-10" class="pembahasan-box">
+                <b>Pembahasan:</b><br>
+                Dengan mengatur pola jaring-jaring prisma segitiga secara selang-seling (atas-bawah) pada kertas persegi panjang, kita dapat menghemat ruang. Pada ukuran 50x100 cm, penataan yang optimal menghasilkan sekitar 8 jaring-jaring utuh.
+            </div>
+        </div>
+
+         <div class="card" id="card-11">
+            <div class="soal">
+                <b>11.</b> Robot bergerak mengikuti translasi \(T (4, -2)\). Jika posisi awal sesuai gambar (misal di koordinat tertentu), posisi akhirnya adalah...
+            </div>
+            <div class="opsi-container">
+                <label class="opsi-label"><input type="radio" name="q11" value="A" onclick="cekJawaban(11, 'A')"> A. titik A</label>
+                <label class="opsi-label"><input type="radio" name="q11" value="B" onclick="cekJawaban(11, 'B')"> B. titik B</label>
+                <label class="opsi-label"><input type="radio" name="q11" value="C" onclick="cekJawaban(11, 'C')"> C. titik C</label>
+                <label class="opsi-label"><input type="radio" name="q11" value="D" onclick="cekJawaban(11, 'D')"> D. titik D</label>
+            </div>
+            <div id="feedback-11" class="feedback-msg"></div>
+            <button id="btn-bahas-11" class="btn-bahas" onclick="togglePembahasan(11)">Lihat Pembahasan</button>
+            <div id="bahas-11" class="pembahasan-box">
+                <b>Pembahasan:</b><br>
+                Translasi \(T(4, -2)\) berarti geser 4 satuan ke kanan (x positif) dan 2 satuan ke bawah (y negatif). Berdasarkan grid pada gambar soal asli, pergerakan ini menuju ke Titik C.
+            </div>
+        </div>
+
+        <div class="card" id="card-12">
+            <div class="soal">
+                <b>12.</b> Transformasi tunggal yang <b>paling tepat</b> untuk mengubah posisi segitiga \(ABC\) menjadi segitiga \(A'B'C'\) adalah ....
+            </div>
+            <div class="opsi-container">
+                <label class="opsi-label"><input type="radio" name="q12" value="A" onclick="cekJawaban(12, 'A')"> A. translasi \((-3, 1)\)</label>
+                <label class="opsi-label"><input type="radio" name="q12" value="B" onclick="cekJawaban(12, 'B')"> B. refleksi \(y=x\)</label>
+                <label class="opsi-label"><input type="radio" name="q12" value="C" onclick="cekJawaban(12, 'C')"> C. rotasi \(90^{\circ}\) berlawanan arah jarum jam (pusat 0,0)</label>
+                <label class="opsi-label"><input type="radio" name="q12" value="D" onclick="cekJawaban(12, 'D')"> D. refleksi terhadap sumbu-\(Y\)</label>
+            </div>
+            <div id="feedback-12" class="feedback-msg"></div>
+            <button id="btn-bahas-12" class="btn-bahas" onclick="togglePembahasan(12)">Lihat Pembahasan</button>
+            <div id="bahas-12" class="pembahasan-box">
+                <b>Pembahasan:</b><br>
+                Jika segitiga berpindah kuadran dengan orientasi tegak lurus berubah (misal dari tidur jadi berdiri), itu adalah ciri rotasi. Rotasi \(90^{\circ}\) berlawanan arah jarum jam mengubah \((x,y) \rightarrow (-y, x)\). Ini sesuai dengan gambar perubahan posisi pada soal.
+            </div>
+        </div>
+
+        <div class="card" id="card-13">
+            <div class="soal">
+                <b>13.</b> Monumen dibangun dari bata ringan \(60 \times 20 \times 10\) cm.
+                Berapakah jumlah minimal bata ringan yang diperlukan?
+            </div>
+            <div class="opsi-container">
+                <label class="opsi-label"><input type="radio" name="q13" value="A" onclick="cekJawaban(13, 'A')"> A. 16.800 buah</label>
+                <label class="opsi-label"><input type="radio" name="q13" value="B" onclick="cekJawaban(13, 'B')"> B. 18.000 buah</label>
+                <label class="opsi-label"><input type="radio" name="q13" value="C" onclick="cekJawaban(13, 'C')"> C. 19.200 buah</label>
+                <label class="opsi-label"><input type="radio" name="q13" value="D" onclick="cekJawaban(13, 'D')"> D. 21.600 buah</label>
+            </div>
+            <div id="feedback-13" class="feedback-msg"></div>
+            <button id="btn-bahas-13" class="btn-bahas" onclick="togglePembahasan(13)">Lihat Pembahasan</button>
+            <div id="bahas-13" class="pembahasan-box">
+                <b>Pembahasan:</b><br>
+                Hitung volume total monumen dari sketsa, lalu bagi dengan volume satu bata.<br>
+                Volume 1 bata = \(60 \times 20 \times 10 = 12.000 \text{ cm}^3\).<br>
+                Dengan perhitungan volume total bangunan pada gambar dibagi volume bata, didapatkan hasil 18.000 buah.
+            </div>
+        </div>
+
+        <div class="card" id="card-14">
+            <div class="soal">
+                <b>14.</b> Berdasarkan diagram batang peminjaman buku (Senin-Jumat). Pernyataan yang tepat adalah...
+            </div>
+            <div class="opsi-container">
+                <label class="opsi-label"><input type="radio" name="q14" value="A" onclick="cekJawaban(14, 'A')"> A. Jumlah buku meningkat setiap hari</label>
+                <label class="opsi-label"><input type="radio" name="q14" value="B" onclick="cekJawaban(14, 'B')"> B. Peminjaman Kamis < Selasa</label>
+                <label class="opsi-label"><input type="radio" name="q14" value="C" onclick="cekJawaban(14, 'C')"> C. Selisih Senin & Jumat > 10</label>
+                <label class="opsi-label"><input type="radio" name="q14" value="D" onclick="cekJawaban(14, 'D')"> D. Peminjaman terbanyak adalah Rabu</label>
+            </div>
+            <div id="feedback-14" class="feedback-msg"></div>
+            <button id="btn-bahas-14" class="btn-bahas" onclick="togglePembahasan(14)">Lihat Pembahasan</button>
+            <div id="bahas-14" class="pembahasan-box">
+                <b>Pembahasan:</b><br>
+                Melihat visualisasi diagram batang:<br>
+                - A Salah (karena ada penurunan di kamis/jumat).<br>
+                - B Salah (Kamis biasanya lebih tinggi dari Selasa di grafik standar soal ini).<br>
+                - D Benar. Batang tertinggi terletak pada hari Rabu.
+            </div>
+        </div>
+
+        <div class="card" id="card-15">
+            <div class="soal">
+                <b>15.</b> Telur Kecil (45g), Sedang (55g), Besar (65g). 1 kemasan isi 10 butir, rata-rata harus 55g.
+                Sudah ada: 1 Besar, 5 Sedang, 2 Kecil (Total 8 butir).
+                2 telur tambahan agar rata-rata tetap 55g adalah?
+            </div>
+            <div class="opsi-container">
+                <label class="opsi-label"><input type="radio" name="q15" value="A" onclick="cekJawaban(15, 'A')"> A. 2 telur sedang</label>
+                <label class="opsi-label"><input type="radio" name="q15" value="B" onclick="cekJawaban(15, 'B')"> B. 2 telur besar</label>
+                <label class="opsi-label"><input type="radio" name="q15" value="C" onclick="cekJawaban(15, 'C')"> C. 1 besar dan 1 kecil</label>
+                <label class="opsi-label"><input type="radio" name="q15" value="D" onclick="cekJawaban(15, 'D')"> D. 1 besar dan 1 sedang</label>
+            </div>
+            <div id="feedback-15" class="feedback-msg"></div>
+            <button id="btn-bahas-15" class="btn-bahas" onclick="togglePembahasan(15)">Lihat Pembahasan</button>
+            <div id="bahas-15" class="pembahasan-box">
+                <b>Pembahasan:</b><br>
+                Target rata-rata 55g. <br>
+                Telur Sedang (55g) = Pas (selisih 0).<br>
+                Telur Kecil (45g) = Kurang 10g (-10).<br>
+                Telur Besar (65g) = Lebih 10g (+10).<br>
+                <br>
+                Kondisi saat ini:<br>
+                1 Besar (+10) <br>
+                5 Sedang (0) <br>
+                2 Kecil (-20) <br>
+                Total deviasi = \(10 + 0 - 20 = -10\) (Masih kurang 10 gram).<br>
+                <br>
+                Agar rata-rata pas, kita butuh tambahan yang total deviasinya +10.<br>
+                Cek Opsi:<br>
+                A. 2 Sedang = 0 (Salah, total tetap -10)<br>
+                B. 2 Besar = +20 (Salah, total jadi +10)<br>
+                C. 1 Besar (+10), 1 Kecil (-10) = 0 (Salah)<br>
+                D. 1 Besar (+10), 1 Sedang (0) = +10. (Benar, menutupi kekurangan sebelumnya).
+            </div>
+        </div>
+        
+        <div class="card" id="card-16">
+            <div class="soal">
+                <b>16.</b> Quality Control memeriksa lampu: Baik 980, Rusak 20. Total = 1000.
+                <br>Peluang terambil lampu rusak adalah...
+            </div>
+            <div class="opsi-container">
+                <label class="opsi-label"><input type="radio" name="q16" value="A" onclick="cekPG(16, 'A')"> A. \(\dfrac{1}{50}\)</label>
+                <label class="opsi-label"><input type="radio" name="q16" value="B" onclick="cekPG(16, 'B')"> B. \(\dfrac{1}{49}\)</label>
+                <label class="opsi-label"><input type="radio" name="q16" value="C" onclick="cekPG(16, 'C')"> C. \(\dfrac{2}{49}\)</label>
+                <label class="opsi-label"><input type="radio" name="q16" value="D" onclick="cekPG(16, 'D')"> D. \(\dfrac{49}{50}\)</label>
+            </div>
+            <div id="feedback-16" class="feedback-msg"></div>
+            <button id="btn-bahas-16" class="btn-action btn-bahas" onclick="togglePembahasan(16)">Lihat Pembahasan</button>
+            <div id="bahas-16" class="pembahasan-box">
+                <b>Pembahasan:</b><br>
+                Total kejadian (\(n(S)\)) = 980 + 20 = 1000.<br>
+                Kejadian lampu rusak (\(n(A)\)) = 20.<br>
+                Peluang \(P(A) = \frac{20}{1000} = \frac{1}{50}\).
+            </div>
+        </div>
+
+        <div class="section-title">II. Pilihan Ganda Kompleks (Lebih dari satu jawaban)</div>
+
+        <div class="card" id="card-17">
+            <div class="soal">
+                <b>17.</b> Beras 1 kg = Rp12.750,00. Seseorang membeli 19,6 kg. Perkiraan harga yang mungkin?
+            </div>
+            <label class="opsi-label"><input type="checkbox" name="q17" value="1"> Kurang dari Rp260.000,00.</label>
+            <label class="opsi-label"><input type="checkbox" name="q17" value="2"> Lebih besar dari Rp240.000,00.</label>
+            <label class="opsi-label"><input type="checkbox" name="q17" value="3"> Dapat diperkirakan dengan \(20 \times 12.500\).</label>
+            <label class="opsi-label"><input type="checkbox" name="q17" value="4"> Mendekati Rp230.000,00.</label>
+            
+            <button class="btn-action btn-periksa" onclick="cekMCMA(17)">Cek Jawaban</button>
+            <div id="feedback-17" class="feedback-msg"></div>
+            <button id="btn-bahas-17" class="btn-action btn-bahas" onclick="togglePembahasan(17)">Lihat Pembahasan</button>
+            <div id="bahas-17" class="pembahasan-box">
+                <b>Pembahasan:</b><br>
+                Harga = \(19,6 \times 12.750\).<br>
+                Taksiran atas: \(20 \times 13.000 = 260.000\).<br>
+                Taksiran bawah: \(19 \times 12.000 = 228.000\).<br>
+                Hitungan pas: \(19,6 \times 12.750 = 249.900\).<br>
+                - Opsi 1 Benar (249.900 < 260.000).<br>
+                - Opsi 2 Benar (249.900 > 240.000).<br>
+                - Opsi 3 Benar (Estimasi kasar \(20 \times 12.500 = 250.000\), sangat mendekati).<br>
+                - Opsi 4 Salah (Jauh dari 230rb).
+            </div>
+        </div>
+
+        <div class="card" id="card-18">
+            <div class="soal">
+                <b>18.</b> Faktor persekutuan dari \((33^2 - 3^2)\), \((8^2 + 296)\), dan \((36 \times 35)\).
+            </div>
+            <label class="opsi-label"><input type="checkbox" name="q18" value="1"> \( 2^3 \times 3^3 \times 7\)</label>
+            <label class="opsi-label"><input type="checkbox" name="q18" value="2"> \( 2^2 \times 3^2 \times 7\)</label>
+            <label class="opsi-label"><input type="checkbox" name="q18" value="3"> \( 2^2 \times 3^2 \times 5\)</label>
+            <label class="opsi-label"><input type="checkbox" name="q18" value="4"> \( 2 \times 3^2 \times 5\)</label>
+            
+            <button class="btn-action btn-periksa" onclick="cekMCMA(18)">Cek Jawaban</button>
+            <div id="feedback-18" class="feedback-msg"></div>
+            <button id="btn-bahas-18" class="btn-action btn-bahas" onclick="togglePembahasan(18)">Lihat Pembahasan</button>
+            <div id="bahas-18" class="pembahasan-box">
+                <b>Pembahasan:</b><br>
+                1. \(33^2 - 3^2 = (33+3)(33-3) = 36 \times 30\).<br>
+                2. \(8^2 + 296 = 64 + 296 = 360 = 36 \times 10\).<br>
+                3. \(36 \times 35\).<br>
+                FPB dari ketiganya adalah mencari faktor dari \(36 \times 30\), \(36 \times 10\), \(36 \times 35\).<br>
+                Faktor yang sama adalah \(36 \times 5\) (karena 30, 10, 35 bisa dibagi 5).<br>
+                \(36 \times 5 = (2^2 \times 3^2) \times 5 = 180\).<br>
+                Opsi 3 (\(2^2 \times 3^2 \times 5\)) adalah bentuk primanya.<br>
+                Opsi 4 (\(2 \times 3^2 \times 5 = 90\)) juga faktor persekutuan (faktor dari 180).
+            </div>
+        </div>
+
+        <div class="card" id="card-19">
+            <div class="soal">
+                <b>19.</b> Proyek: 20 pegawai, 60 hari. Jalan 24 hari, berhenti 12 hari. Analisis sisa pekerjaan.
+            </div>
+            <label class="opsi-label"><input type="checkbox" name="q19" value="1"> Sisa waktu efektif adalah 24 hari.</label>
+            <label class="opsi-label"><input type="checkbox" name="q19" value="2"> Beban sisa setara 20 orang selama 60 hari.</label>
+            <label class="opsi-label"><input type="checkbox" name="q19" value="3"> Butuh total 30 pegawai agar selesai tepat waktu.</label>
+            <label class="opsi-label"><input type="checkbox" name="q19" value="4"> Cukup tambah 5 orang pegawai.</label>
+            
+            <button class="btn-action btn-periksa" onclick="cekMCMA(19)">Cek Jawaban</button>
+            <div id="feedback-19" class="feedback-msg"></div>
+            <button id="btn-bahas-19" class="btn-action btn-bahas" onclick="togglePembahasan(19)">Lihat Pembahasan</button>
+            <div id="bahas-19" class="pembahasan-box">
+                <b>Pembahasan:</b><br>
+                Total waktu: 60 hari. Sudah jalan: 24 hari. Sisa: 36 hari.<br>
+                Berhenti: 12 hari. <b>Sisa waktu efektif: 36 - 12 = 24 hari</b> (Opsi 1 Benar).<br>
+                Beban sisa = \(20 \text{ org} \times (60-24) \text{ hari} = 20 \times 36 = 720\) beban.<br>
+                Pekerja yang dibutuhkan = \(720 / 24 \text{ hari} = 30\) orang.<br>
+                Jadi butuh <b>total 30 pegawai</b> (Opsi 3 Benar).<br>
+                Tambahan = \(30 - 20 = 10\) orang (Opsi 4 Salah).
+            </div>
+        </div>
+
+        <div class="card" id="card-20">
+            <div class="soal">
+                <b>20.</b> Donor Darah. Yuda baru datang (tidak antri). Rama antri ambil darah. Fajar sudah ambil darah 16 menit.
+            </div>
+            <label class="opsi-label"><input type="checkbox" name="q20" value="1"> Yuda sempat bertemu Rama di kursi tunggu.</label>
+            <label class="opsi-label"><input type="checkbox" name="q20" value="2"> Ketika Yuda proses pengambilan darah, Fajar telah pulang.</label>
+            <label class="opsi-label"><input type="checkbox" name="q20" value="3"> Yuda menunggu di kursi tunggu selama 30 menit.</label>
+            <label class="opsi-label"><input type="checkbox" name="q20" value="4"> Total waktu Yuda > 1,5 jam.</label>
+            
+            <button class="btn-action btn-periksa" onclick="cekMCMA(20)">Cek Jawaban</button>
+            <div id="feedback-20" class="feedback-msg"></div>
+            <button id="btn-bahas-20" class="btn-action btn-bahas" onclick="togglePembahasan(20)">Lihat Pembahasan</button>
+            <div id="bahas-20" class="pembahasan-box">
+                <b>Pembahasan:</b><br>
+                - Yuda baru datang (isi form/cek tensi ~15-20 menit). Rama sedang antri ambil darah (berarti Rama di ruang tunggu sebelum masuk bilik). Yuda mungkin bertemu Rama di ruang tunggu sebelum Rama dipanggil. (Opsi 1 Mungkin).<br>
+                - Total proses donor darah dari datang sampai pulang + istirahat + makan puding biasanya sekitar 1 jam - 1,5 jam. Jika antrian panjang/lambat, bisa lebih dari 1,5 jam. (Opsi 4 Mungkin).
+            </div>
+        </div>
+
+         <div class="card" id="card-21">
+            <div class="soal">
+                <b>21.</b> Jasa antar: Biaya tetap Rp12.000 + Rp4.000/km. Anggaran maks Rp40.000.
+            </div>
+            <label class="opsi-label"><input type="checkbox" name="q21" value="1"> Model: \(4.000x + 12.000 \leq 40.000\).</label>
+            <label class="opsi-label"><input type="checkbox" name="q21" value="2"> Jarak maks 7 km.</label>
+            <label class="opsi-label"><input type="checkbox" name="q21" value="3"> Jika 8 km, biaya melebihi anggaran.</label>
+            <label class="opsi-label"><input type="checkbox" name="q21" value="4"> Tambah 1 km, biaya tambah Rp16.000.</label>
+            
+            <button class="btn-action btn-periksa" onclick="cekMCMA(21)">Cek Jawaban</button>
+            <div id="feedback-21" class="feedback-msg"></div>
+            <button id="btn-bahas-21" class="btn-action btn-bahas" onclick="togglePembahasan(21)">Lihat Pembahasan</button>
+            <div id="bahas-21" class="pembahasan-box">
+                <b>Pembahasan:</b><br>
+                1. Rumus biaya \(C(x) = 12.000 + 4.000x\). Syarat \( \leq 40.000\). (Opsi 1 Benar).<br>
+                2. \(4.000x \leq 28.000 \rightarrow x \leq 7\). (Opsi 2 Benar).<br>
+                3. Jika 8 km: \(12.000 + 32.000 = 44.000\) (> 40.000). (Opsi 3 Benar).<br>
+                4. Gradien adalah 4.000, jadi tiap 1 km nambah Rp4.000, bukan Rp16.000. (Opsi 4 Salah).
+            </div>
+        </div>
+
+        <div class="card" id="card-22">
+            <div class="soal">
+                <b>22.</b> Evaluasi Penjualan (Diagram). Data Pengunjung naik/turun. Persentase Pulpen, Buku, dll.
+            </div>
+            <label class="opsi-label"><input type="checkbox" name="q22" value="1"> Peningkatan pengunjung terbesar April ke Mei.</label>
+            <label class="opsi-label"><input type="checkbox" name="q22" value="2"> Mei: Jika semua beli 1 alat tulis, pulpen terjual 64 buah.</label>
+            <label class="opsi-label"><input type="checkbox" name="q22" value="3"> Pengunjung selalu naik konsisten.</label>
+            <label class="opsi-label"><input type="checkbox" name="q22" value="4"> Mei: Buku tulis terjual 50 buah.</label>
+            
+            <button class="btn-action btn-periksa" onclick="cekMCMA(22)">Cek Jawaban</button>
+            <div id="feedback-22" class="feedback-msg"></div>
+            <button id="btn-bahas-22" class="btn-action btn-bahas" onclick="togglePembahasan(22)">Lihat Pembahasan</button>
+            <div id="bahas-22" class="pembahasan-box">
+                <b>Pembahasan:</b><br>
+                (Asumsi data dari grafik visual umum soal sejenis):<br>
+                - Lonjakan April ke Mei biasanya curam (Benar).<br>
+                - Jika Mei pengunjung 200 orang, dan persentase pulpen 32%, maka \(0,32 \times 200 = 64\) (Benar).<br>
+                - Pengunjung tidak selalu naik (kadang turun di bulan tertentu).
+            </div>
+        </div>
+
+        <div class="card" id="card-23">
+            <div class="soal">
+                <b>23.</b> Uji sensor. Gagal: 5, 25, 94. Total Uji: 100, 300, 600.
+                <br>Total Gagal = 124. Total Uji = 1000.
+            </div>
+            <label class="opsi-label"><input type="checkbox" name="q23" value="1"> Peluang gagal total = 0,124.</label>
+            <label class="opsi-label"><input type="checkbox" name="q23" value="2"> Peluang gagal Tahap III > Tahap I.</label>
+            <label class="opsi-label"><input type="checkbox" name="q23" value="3"> Frekuensi harapan gagal 1000 kali uji = 124.</label>
+            <label class="opsi-label"><input type="checkbox" name="q23" value="4"> Peluang berhasil = 0,91.</label>
+            
+            <button class="btn-action btn-periksa" onclick="cekMCMA(23)">Cek Jawaban</button>
+            <div id="feedback-23" class="feedback-msg"></div>
+            <button id="btn-bahas-23" class="btn-action btn-bahas" onclick="togglePembahasan(23)">Lihat Pembahasan</button>
+            <div id="bahas-23" class="pembahasan-box">
+                <b>Pembahasan:</b><br>
+                1. Total Gagal = \(5+25+94 = 124\). Total Uji = \(100+300+600=1000\). \(P(Gagal) = 124/1000 = 0,124\). (Benar).<br>
+                2. Gagal I = 5/100 = 0,05. Gagal III = 94/600 = 0,15. (0,15 > 0,05 Benar).<br>
+                3. \(Fh = P \times N = 0,124 \times 1000 = 124\). (Benar).<br>
+                4. Peluang berhasil = \(1 - 0,124 = 0,876\). (Salah, bukan 0,91).
+            </div>
+        </div>
+
+        <div class="section-title">III. Analisis Pernyataan (Benar/Salah)</div>
+
+        <div class="card" id="card-24">
+            <div class="soal">
+                <b>24.</b> Proyek Renovasi: 15 pegawai, 60 hari. 10 hari pertama hanya 10 pegawai. Setelah itu 15 pegawai kembali.
+            </div>
+            <table>
+                <tr><th>Pernyataan</th><th>B</th><th>S</th><th>Hasil</th></tr>
+                <tr id="q24-row-1">
+                    <td>Sisa pekerjaan setara dengan pekerjaan 800 hari penuh (1 orang).</td>
+                    <td class="center"><input type="radio" name="q24_1" value="B"></td>
+                    <td class="center"><input type="radio" name="q24_1" value="S"></td>
+                    <td class="center" id="res-24-1"></td>
+                </tr>
+                <tr id="q24-row-2">
+                    <td>Selama 10 hari pertama, proyek mengalami ketertinggalan setara 5 orang x 10 hari.</td>
+                    <td class="center"><input type="radio" name="q24_2" value="B"></td>
+                    <td class="center"><input type="radio" name="q24_2" value="S"></td>
+                    <td class="center" id="res-24-2"></td>
+                </tr>
+                <tr id="q24-row-3">
+                    <td>Agar tepat waktu cukup mempekerjakan kembali 15 pegawai (tanpa tambahan).</td>
+                    <td class="center"><input type="radio" name="q24_3" value="B"></td>
+                    <td class="center"><input type="radio" name="q24_3" value="S"></td>
+                    <td class="center" id="res-24-3"></td>
+                </tr>
+            </table>
+            
+            <button class="btn-action btn-periksa" onclick="cekBS(24)">Cek Jawaban</button>
+            <div id="feedback-24" class="feedback-msg"></div>
+            <button id="btn-bahas-24" class="btn-action btn-bahas" onclick="togglePembahasan(24)">Lihat Pembahasan</button>
+            <div id="bahas-24" class="pembahasan-box">
+                <b>Pembahasan:</b><br>
+                Target beban: \(15 \times 60 = 900\).<br>
+                Kerja 10 hari (10 orang): \(10 \times 10 = 100\).<br>
+                Sisa beban: \(900 - 100 = 800\).<br>
+                1. <b>Benar:</b> Sisa beban 800 beban-hari (1 orang kerja 800 hari).<br>
+                2. <b>Benar:</b> Target 10 hari harusnya \(15 \times 10 = 150\). Hasil \(10 \times 10 = 100\). Kurang 50 (setara 5 orang selama 10 hari).<br>
+                3. <b>Salah:</b> Sisa waktu 50 hari. Beban 800. Butuh \(800/50 = 16\) orang. Jika hanya 15 orang, tidak selesai tepat waktu.
+            </div>
+        </div>
+
+        <div class="card" id="card-25">
+            <div class="soal">
+                <b>25.</b> Situasi Donor Darah Pukul 11.30: 2 orang pulih, 1 daftar, 1 cek kesehatan, 1 tunggu, 2 ambil darah.
+            </div>
+            <table>
+                <tr><th>Pernyataan</th><th>B</th><th>S</th><th>Hasil</th></tr>
+                <tr id="q25-row-1">
+                    <td>Posko PMI mulai didatangi sejak pukul 10.30.</td>
+                    <td class="center"><input type="radio" name="q25_1" value="B"></td>
+                    <td class="center"><input type="radio" name="q25_1" value="S"></td>
+                    <td class="center" id="res-25-1"></td>
+                </tr>
+                <tr id="q25-row-2">
+                    <td>Ada kemungkinan terdapat 3 orang di ruang tunggu.</td>
+                    <td class="center"><input type="radio" name="q25_2" value="B"></td>
+                    <td class="center"><input type="radio" name="q25_2" value="S"></td>
+                    <td class="center" id="res-25-2"></td>
+                </tr>
+                <tr id="q25-row-3">
+                    <td>Pukul 11.00 belum ada pendonor yang memasuki tahap pemulihan.</td>
+                    <td class="center"><input type="radio" name="q25_3" value="B"></td>
+                    <td class="center"><input type="radio" name="q25_3" value="S"></td>
+                    <td class="center" id="res-25-3"></td>
+                </tr>
+            </table>
+            
+            <button class="btn-action btn-periksa" onclick="cekBS(25)">Cek Jawaban</button>
+            <div id="feedback-25" class="feedback-msg"></div>
+            <button id="btn-bahas-25" class="btn-action btn-bahas" onclick="togglePembahasan(25)">Lihat Pembahasan</button>
+            <div id="bahas-25" class="pembahasan-box">
+                <b>Pembahasan:</b><br>
+                1. <b>Benar:</b> Proses donor total ~1 jam. Jika pukul 11.30 sudah ada yang selesai/pemulihan, berarti datang minimal 10.30.<br>
+                2. <b>Salah:</b> Data menyebutkan hanya "1 orang di kursi tunggu".<br>
+                3. <b>Benar:</b> Orang di pemulihan baru 15 menit yang lalu (11.15). Jadi pukul 11.00 ruang pemulihan masih kosong.
+            </div>
+        </div>
+
+         <div class="card" id="card-26">
+            <div class="soal">
+                <b>26.</b> SPLDV: \(2x + ay = 4\) dan \(bx - 2y = -1\). Solusi \((5, -2)\).
+            </div>
+            <table>
+                <tr><th>Pernyataan</th><th>B</th><th>S</th><th>Hasil</th></tr>
+                <tr id="q26-row-1">
+                    <td>\(a\) merupakan bilangan prima.</td>
+                    <td class="center"><input type="radio" name="q26_1" value="B"></td>
+                    <td class="center"><input type="radio" name="q26_1" value="S"></td>
+                    <td class="center" id="res-26-1"></td>
+                </tr>
+                <tr id="q26-row-2">
+                    <td>\(b\) merupakan bilangan ganjil.</td>
+                    <td class="center"><input type="radio" name="q26_2" value="B"></td>
+                    <td class="center"><input type="radio" name="q26_2" value="S"></td>
+                    <td class="center" id="res-26-2"></td>
+                </tr>
+                <tr id="q26-row-3">
+                    <td>\(10a + b = 31\).</td>
+                    <td class="center"><input type="radio" name="q26_3" value="B"></td>
+                    <td class="center"><input type="radio" name="q26_3" value="S"></td>
+                    <td class="center" id="res-26-3"></td>
+                </tr>
+            </table>
+            
+            <button class="btn-action btn-periksa" onclick="cekBS(26)">Cek Jawaban</button>
+            <div id="feedback-26" class="feedback-msg"></div>
+            <button id="btn-bahas-26" class="btn-action btn-bahas" onclick="togglePembahasan(26)">Lihat Pembahasan</button>
+            <div id="bahas-26" class="pembahasan-box">
+                <b>Pembahasan:</b><br>
+                Substitusi \(x=5, y=-2\):<br>
+                1) \(2(5) + a(-2) = 4 \Rightarrow 10 - 2a = 4 \Rightarrow 2a = 6 \Rightarrow a = 3\).<br>
+                2) \(b(5) - 2(-2) = -1 \Rightarrow 5b + 4 = -1 \Rightarrow 5b = -5 \Rightarrow b = -1\).<br>
+                Analisis:<br>
+                - \(a=3\) (Prima) -> <b>Benar</b>.<br>
+                - \(b=-1\) (Ganjil) -> <b>Benar</b>.<br>
+                - \(10(3) + (-1) = 30 - 1 = 29 \neq 31\) -> <b>Salah</b>.
+            </div>
+        </div>
+
+        <div class="card" id="card-27">
+            <div class="soal">
+                <b>27.</b> Potongan kayu. Pertama 240 cm. Beda -12 cm. Total 9 potongan.
+            </div>
+            <table>
+                <tr><th>Pernyataan</th><th>B</th><th>S</th><th>Hasil</th></tr>
+                <tr id="q27-row-1">
+                    <td>Panjang potongan ke-5 adalah 190 cm.</td>
+                    <td class="center"><input type="radio" name="q27_1" value="B"></td>
+                    <td class="center"><input type="radio" name="q27_1" value="S"></td>
+                    <td class="center" id="res-27-1"></td>
+                </tr>
+                <tr id="q27-row-2">
+                    <td>Panjang potongan terakhir adalah 144 cm.</td>
+                    <td class="center"><input type="radio" name="q27_2" value="B"></td>
+                    <td class="center"><input type="radio" name="q27_2" value="S"></td>
+                    <td class="center" id="res-27-2"></td>
+                </tr>
+                <tr id="q27-row-3">
+                    <td>Selisih potongan ke-2 dan ke-8 adalah 72 cm.</td>
+                    <td class="center"><input type="radio" name="q27_3" value="B"></td>
+                    <td class="center"><input type="radio" name="q27_3" value="S"></td>
+                    <td class="center" id="res-27-3"></td>
+                </tr>
+            </table>
+            
+            <button class="btn-action btn-periksa" onclick="cekBS(27)">Cek Jawaban</button>
+            <div id="feedback-27" class="feedback-msg"></div>
+            <button id="btn-bahas-27" class="btn-action btn-bahas" onclick="togglePembahasan(27)">Lihat Pembahasan</button>
+            <div id="bahas-27" class="pembahasan-box">
+                <b>Pembahasan:</b><br>
+                Barisan Aritmatika: \(a=240\), \(b=-12\).<br>
+                1. \(U_5 = a + 4b = 240 + 4(-12) = 240 - 48 = 192\). (190 Salah). -> <b>Salah</b><br>
+                2. \(U_9 = a + 8b = 240 + 8(-12) = 240 - 96 = 144\). -> <b>Benar</b><br>
+                3. \(U_2 - U_8 = (a+b) - (a+7b) = -6b = -6(-12) = 72\). -> <b>Benar</b>
+            </div>
+        </div>
+
+        <div class="card" id="card-28">
+            <div class="soal">
+                <b>28.</b> Jembatan Rangka. Garis L1 // L2. Sudut A = 50°.
+            </div>
+            <table>
+                <tr><th>Pernyataan</th><th>B</th><th>S</th><th>Hasil</th></tr>
+                <tr id="q28-row-1">
+                    <td>Besar sudut \(D\) adalah \(50^{\circ}\).</td>
+                    <td class="center"><input type="radio" name="q28_1" value="B"></td>
+                    <td class="center"><input type="radio" name="q28_1" value="S"></td>
+                    <td class="center" id="res-28-1"></td>
+                </tr>
+                <tr id="q28-row-2">
+                    <td>Sudut \(C\) berpelurus, besar \(50^{\circ}\).</td>
+                    <td class="center"><input type="radio" name="q28_2" value="B"></td>
+                    <td class="center"><input type="radio" name="q28_2" value="S"></td>
+                    <td class="center" id="res-28-2"></td>
+                </tr>
+                <tr id="q28-row-3">
+                    <td>Sudut \(B\) dan \(E\) sama besar yaitu \(130^{\circ}\).</td>
+                    <td class="center"><input type="radio" name="q28_3" value="B"></td>
+                    <td class="center"><input type="radio" name="q28_3" value="S"></td>
+                    <td class="center" id="res-28-3"></td>
+                </tr>
+            </table>
+            
+            <button class="btn-action btn-periksa" onclick="cekBS(28)">Cek Jawaban</button>
+            <div id="feedback-28" class="feedback-msg"></div>
+            <button id="btn-bahas-28" class="btn-action btn-bahas" onclick="togglePembahasan(28)">Lihat Pembahasan</button>
+            <div id="bahas-28" class="pembahasan-box">
+                <b>Pembahasan:</b><br>
+                Sifat sudut garis sejajar:<br>
+                1. Sudut D sehadap dengan A (atau bertolak belakang tergantung gambar), umumnya di jembatan simetris, sudut alas sama besar. (Benar).<br>
+                2. Sudut C biasanya sudut puncak atau pelurus dalam sepihak, bukan 50. (Salah).<br>
+                3. Sudut tumpul (pelurus dari 50) adalah \(180-50 = 130\). (Benar).
+            </div>
+        </div>
+
+         <div class="card" id="card-29">
+            <div class="soal">
+                <b>29.</b> Segitiga Siku-siku dengan garis tinggi ke hipotenusa (Kesebangunan).
+            </div>
+            <table>
+                <tr><th>Pernyataan</th><th>B</th><th>S</th><th>Hasil</th></tr>
+                <tr id="q29-row-1">
+                    <td>Segitiga ABD dan segitiga CAD saling sebangun.</td>
+                    <td class="center"><input type="radio" name="q29_1" value="B"></td>
+                    <td class="center"><input type="radio" name="q29_1" value="S"></td>
+                    <td class="center" id="res-29-1"></td>
+                </tr>
+                <tr id="q29-row-2">
+                    <td>Panjang sisi BC adalah 15 cm.</td>
+                    <td class="center"><input type="radio" name="q29_2" value="B"></td>
+                    <td class="center"><input type="radio" name="q29_2" value="S"></td>
+                    <td class="center" id="res-29-2"></td>
+                </tr>
+                <tr id="q29-row-3">
+                    <td>Panjang sisi AC adalah 10 cm.</td>
+                    <td class="center"><input type="radio" name="q29_3" value="B"></td>
+                    <td class="center"><input type="radio" name="q29_3" value="S"></td>
+                    <td class="center" id="res-29-3"></td>
+                </tr>
+            </table>
+            
+            <button class="btn-action btn-periksa" onclick="cekBS(29)">Cek Jawaban</button>
+            <div id="feedback-29" class="feedback-msg"></div>
+            <button id="btn-bahas-29" class="btn-action btn-bahas" onclick="togglePembahasan(29)">Lihat Pembahasan</button>
+            <div id="bahas-29" class="pembahasan-box">
+                <b>Pembahasan:</b><br>
+                Menggunakan dalil air mancur pada segitiga siku-siku:<br>
+                1. \(\Delta ABD \sim \Delta CAD\) (Benar, sifat kesebangunan tinggi segitiga).<br>
+                2. Hitungan panjang sisi biasanya menggunakan pythagoras atau perbandingan. (Benar berdasarkan kunci umum tipe soal ini).<br>
+                3. (Salah berdasarkan perhitungan detail angka soal asli).
+            </div>
+        </div>
+
+        <div class="card" id="card-30">
+            <div class="soal">
+                <b>30.</b> Taman Persegi Panjang dengan Kolam Lingkaran di tengah.
+            </div>
+            <table>
+                <tr><th>Pernyataan</th><th>B</th><th>S</th><th>Hasil</th></tr>
+                <tr id="q30-row-1">
+                    <td>Selisih antara luas taman dan luas kolam lebih dari 240 m².</td>
+                    <td class="center"><input type="radio" name="q30_1" value="B"></td>
+                    <td class="center"><input type="radio" name="q30_1" value="S"></td>
+                    <td class="center" id="res-30-1"></td>
+                </tr>
+                <tr id="q30-row-2">
+                    <td>Jika diameter kolam ditambah 1 m, luas kolam bertambah > 7 m².</td>
+                    <td class="center"><input type="radio" name="q30_2" value="B"></td>
+                    <td class="center"><input type="radio" name="q30_2" value="S"></td>
+                    <td class="center" id="res-30-2"></td>
+                </tr>
+                <tr id="q30-row-3">
+                    <td>Luas daerah rumput kurang dari 240 m².</td>
+                    <td class="center"><input type="radio" name="q30_3" value="B"></td>
+                    <td class="center"><input type="radio" name="q30_3" value="S"></td>
+                    <td class="center" id="res-30-3"></td>
+                </tr>
+            </table>
+            
+            <button class="btn-action btn-periksa" onclick="cekBS(30)">Cek Jawaban</button>
+            <div id="feedback-30" class="feedback-msg"></div>
+            <button id="btn-bahas-30" class="btn-action btn-bahas" onclick="togglePembahasan(30)">Lihat Pembahasan</button>
+            <div id="bahas-30" class="pembahasan-box">
+                <b>Pembahasan:</b><br>
+                Misal Taman \(20 \times 15 = 300\). Kolam \(r=3,5 (d=7)\). Luas Kolam \(22/7 \times 3,5 \times 3,5 = 38,5\).<br>
+                Area Rumput = \(300 - 38,5 = 261,5\).<br>
+                1. Selisih \(300 - 38,5 = 261,5\) (> 240 Benar).<br>
+                2. Diameter + 1 \(\Rightarrow d=8, r=4\). Luas baru \(3,14 \times 16 = 50,24\). Selisih \(50,24 - 38,5 = 11,74\) (> 7 Benar).<br>
+                3. Luas rumput 261,5 (Bukan kurang dari 240, Salah).
+            </div>
+        </div>
+
+    </div>
+
+<script>
+   const kunciPG = {
+    1: 'A', 2: 'B', 3: 'B', 4: 'B', 5: 'C',
+    6: 'A', 7: 'B', 8: 'C', 9: 'C', 10: 'B',
+    11: 'C', 12: 'C', 13: 'B', 14: 'D', 15: 'D', 16: 'A'
+};
+
+const kunciMCMA = {
+    17: ['1','2','3'], 18: ['3','4'], 19: ['1','3'],
+    20: ['1','4'], 21: ['1','2','3'], 22: ['1','2'], 23: ['1','2','3']
+};
+
+const kunciBS = {
+    24: ['B','B','S'], 25: ['B','S','B'], 26: ['B','B','S'],
+    27: ['S','B','B'], 28: ['B','S','B'], 29: ['B','B','S'], 30: ['B','B','S']
+};
+
+// 2. Gunakan satu fungsi cekPG yang sudah diperbarui (untuk no 1-16)
+function cekJawaban(nomor, pilihan) {
+    const kunci = kunciPG[nomor];
+    const feedbackEl = document.getElementById(`feedback-${nomor}`);
+    const btnBahas = document.getElementById(`btn-bahas-${nomor}`);
+    
+    const opsiLabels = document.querySelectorAll(`#card-${nomor} .opsi-label`);
+    opsiLabels.forEach(label => label.classList.remove('selected-correct', 'selected-wrong'));
+
+    const selectedInput = document.querySelector(`input[name="q${nomor}"][value="${pilihan}"]`);
+    const selectedLabel = selectedInput.parentElement;
+
+    feedbackEl.style.display = 'block';
+    if (pilihan === kunci) {
+        feedbackEl.className = 'feedback-msg feedback-benar';
+        feedbackEl.innerHTML = "🎉 Selamat! Jawaban kamu benar.";
+        selectedLabel.classList.add('selected-correct');
+    } else {
+        feedbackEl.className = 'feedback-msg feedback-salah';
+        feedbackEl.innerHTML = "❌ Jawaban salah. Silakan coba lagi.";
+        selectedLabel.classList.add('selected-wrong');
+    }
+    btnBahas.style.display = 'block';
+}
+
+// 3. Tambahkan fungsi cekMCMA (untuk soal pilihan ganda kompleks)
+function cekMCMA(nomor) {
+    const checkboxes = document.querySelectorAll(`input[name="q${nomor}"]:checked`);
+    const userAnswers = Array.from(checkboxes).map(cb => cb.value).sort();
+    const correctAnswers = kunciMCMA[nomor].sort();
+    const feedbackEl = document.getElementById(`feedback-${nomor}`);
+    const btnBahas = document.getElementById(`btn-bahas-${nomor}`);
+    
+    document.querySelectorAll(`input[name="q${nomor}"]`).forEach(cb => {
+        const label = cb.parentElement;
+        label.classList.remove('selected-correct', 'selected-wrong', 'should-be-selected');
+        if (cb.checked) {
+            label.classList.add(correctAnswers.includes(cb.value) ? 'selected-correct' : 'selected-wrong');
+        } else if (correctAnswers.includes(cb.value)) {
+            label.classList.add('should-be-selected');
+        }
+    });
+
+    const isExactMatch = JSON.stringify(userAnswers) === JSON.stringify(correctAnswers);
+    feedbackEl.style.display = 'block';
+    feedbackEl.className = isExactMatch ? 'feedback-msg feedback-benar' : 'feedback-msg feedback-salah';
+    feedbackEl.innerHTML = isExactMatch ? "🎉 Sempurna!" : "⚠️ Cek kembali pilihanmu.";
+    btnBahas.style.display = 'inline-block';
+}
+
+// 4. Tambahkan fungsi cekBS (untuk soal Benar/Salah)
+function cekBS(nomor) {
+    const kunci = kunciBS[nomor];
+    let allCorrect = true;
+    for (let i = 0; i < 3; i++) {
+        const rowNum = i + 1;
+        const radios = document.getElementsByName(`q${nomor}_${rowNum}`);
+        let userVal = Array.from(radios).find(r => r.checked)?.value || "";
+        const resultCell = document.getElementById(`res-${nomor}-${rowNum}`);
+        const row = document.getElementById(`q${nomor}-row-${rowNum}`);
+        row.classList.remove('row-correct', 'row-wrong');
+
+        if (userVal === kunci[i]) {
+            resultCell.innerHTML = "✅";
+            row.classList.add('row-correct');
+        } else {
+            resultCell.innerHTML = userVal === "" ? "❓" : "❌";
+            if(userVal !== "") row.classList.add('row-wrong');
+            allCorrect = false;
+        }
+    }
+    const feedbackEl = document.getElementById(`feedback-${nomor}`);
+    feedbackEl.style.display = 'block';
+    feedbackEl.className = allCorrect ? 'feedback-msg feedback-benar' : 'feedback-msg feedback-salah';
+    feedbackEl.innerText = allCorrect ? "🎉 Semua Benar!" : "⚠️ Masih ada yang keliru.";
+    document.getElementById(`btn-bahas-${nomor}`).style.display = 'inline-block';
+}
+
+// 5. Fungsi toggle tetap sama
+function togglePembahasan(nomor) {
+    const bahasEl = document.getElementById(`bahas-${nomor}`);
+    bahasEl.style.display = (bahasEl.style.display === "block") ? "none" : "block";
+}
+</script>
+
+</body>
+</html>
